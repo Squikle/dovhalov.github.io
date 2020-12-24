@@ -1,0 +1,207 @@
+.content {
+    font-family: 'Roboto Condensed', sans-serif;
+    display: grid;
+    grid-template-areas: 
+    "header header header header"
+    "cakes cakes cakes nav"
+    "cakes cakes cakes nav"
+    "cakes cakes cakes nav"
+    "footer footer footer footer";
+    grid-gap: 12px;
+    color: rgb(43, 72, 97);
+}
+.header {
+    grid-area: header;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+.header h1 {
+    margin: 0;
+    padding: 0;
+}
+.cakes {
+    grid-area: cakes; 
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 1fr 1fr 1fr; 
+    grid-gap: 12px;
+}
+.nav {
+    grid-area: nav; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid 1px rgb(221, 221, 221);
+    border-radius: 5px;
+    background-color: rgb(246,247,248);
+}
+.nav .calories-slider p {
+    text-align: center;
+}
+input {
+    display: none;
+}
+.nav label {
+    background-color: rgb(227, 230, 233);
+    margin: 10px;
+    padding: 15px;
+    min-width: 200px;
+    text-align: center;
+    border-radius: 5px;
+}
+.nav label:hover {
+    background-color:rgb(205, 209, 212);
+    cursor: pointer;
+}
+.nav img:hover {
+    cursor: pointer;
+}
+.cake {
+    background-color: rgb(246,247,248);
+    border: solid 1px rgb(221, 221, 221);
+    border-radius: 5px;
+}
+.cake:hover {
+    background-color: rgb(227, 230, 233);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.24);
+}
+.cake:hover .line {
+    border-top: solid 1px rgb(255, 255, 255);
+}
+.cake .line {
+    border-top: solid 1px rgb(221, 221, 221);
+}
+.cake .main {
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 14px;
+    align-items: flex-start;
+}
+.cake .main p {
+    align-self: flex-start;
+    padding: 0 10px 0 10px;
+    margin: 0;
+}
+.cake .calories {
+    padding: 14px;
+}
+.cake .calories p {
+    margin: 0;
+    padding: 0;
+}
+#header_decorator {
+    color: rgb(227,71,91);
+    font-size: 50px;
+    font-style: italic;
+}
+.footer {
+    grid-area: footer;
+    display: flex;
+    justify-content: space-between;
+}
+a {
+    text-decoration: none;
+    color: rgb(41, 103, 158);
+}
+.contacts {
+    display: flex;
+    gap: 5px;
+}
+.footer p {
+    margin: 0;
+}
+#pie-button:checked ~ .its-cake,
+#pie-button:checked ~ .its-little-cake,
+#pie-button:checked ~ .its-cheesecake,
+#pie-button:checked ~ .its-roll {
+    filter: opacity(50%) blur(1px) grayscale(100%);
+}
+#roll-button:checked ~ .its-pie,
+#roll-button:checked ~ .its-cheesecake,
+#roll-button:checked ~ .its-cake,
+#roll-button:checked ~ .its-little-cake {
+    filter: opacity(50%) blur(1px) grayscale(100%);
+}
+#cheesecake-button:checked ~ .its-pie,
+#cheesecake-button:checked ~ .its-cake,
+#cheesecake-button:checked ~ .its-little-cake,
+#cheesecake-button:checked ~ .its-roll {
+    filter: opacity(50%) blur(1px) grayscale(100%);
+}
+#little-cake-button:checked ~ .its-pie,
+#little-cake-button:checked ~ .its-cake,
+#little-cake-button:checked ~ .its-roll,
+#little-cake-button:checked ~ .its-cheesecake {
+    filter: opacity(50%) blur(1px) grayscale(100%);
+}
+#cake-button:checked ~ .its-pie,
+#cake-button:checked ~ .its-little-cake,
+#cake-button:checked ~ .its-roll,
+#cake-button:checked ~ .its-cheesecake {
+    filter: opacity(50%) blur(1px) grayscale(100%);
+}
+
+@media (max-width: 1200px) {
+    .cake .calories {
+        display: none;
+    }
+    .cake .line {
+        display: none;
+    }
+    .cake .main {
+        flex-direction: column;
+    }
+    .cake .main p {
+        padding: 10px 0 0 0;
+    }
+    .content {
+        display: flex;
+        flex-direction: column;
+        grid-gap: 12px;
+        color: rgb(43, 72, 97);
+    }
+    .nav .calories-slider {
+        display: none;
+    }
+    .nav {
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        background-color: white;
+        border: none;
+    }
+    .contacts {
+        display: inline;
+    }
+    .footer > .contacts > #email > a::before {
+        content: "✉ ";
+    }
+}
+
+@media (max-width: 730px) {
+    .cake .main p {
+        display: none;
+    }
+    .cake .main {
+        margin: 0;
+        padding: 0;
+        align-items: center;
+    }
+    .cake .main img {
+        border-radius: 10px;
+    }
+    .cake .main img {
+        width: 100%;
+    }
+    .cakes {
+        display: flex;
+        flex-direction: column;
+    }
+    .nav {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+    }
+    .footer {
+        flex-direction: column;
+    }
+}
